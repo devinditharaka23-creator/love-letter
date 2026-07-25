@@ -1,64 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Love Letter ❤️</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Letter ❤️</title>
 
-    <style>
-        body{
-            margin:0;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            height:100vh;
-            background:linear-gradient(135deg,#ff9ecf,#ffc7e8);
-            font-family:Arial,sans-serif;
-        }
-
-        .card{
-            background:white;
-            padding:40px;
-            border-radius:20px;
-            text-align:center;
-            box-shadow:0 10px 30px rgba(0,0,0,.2);
-        }
-
-        h1{
-            color:#ff4081;
-        }
-
-        button{
-            padding:12px 25px;
-            font-size:18px;
-            border:none;
-            border-radius:30px;
-            background:#ff4081;
-            color:white;
-            cursor:pointer;
-        }
-
-        button:hover{
-            background:#e91e63;
-        }
-    </style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="card">
-    <h1>💌 Love Letter 💌</h1>
-    <p>Hello My Love ❤️</p>
+<div class="container">
 
-    <button onclick="showMessage()">
-        Open Letter
-    </button>
+    <div id="envelope" class="envelope">
+        💌
+    </div>
+
+    <div id="letter" class="letter hidden">
+        <h1>My Love ❤️</h1>
+
+        <p>
+            Every day with you is beautiful. <br><br>
+
+            Thank you for being in my life. 💕
+
+            <br><br>
+
+            I Love You Forever ❤️
+        </p>
+
+        <button onclick="nextPage()">Continue ➜</button>
+    </div>
+
 </div>
 
-<script>
-function showMessage(){
-    alert("I Love You Forever ❤️🥰");
-}
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
