@@ -208,3 +208,67 @@ function createSparkles() {
         }, i * 100);
     }
 }
+// =========================
+// SHOW OPEN WHEN PAGE
+// =========================
+
+function showOpenWhen() {
+
+    document.getElementById("giftPage").classList.add("hidden");
+
+    document.getElementById("openWhenPage").classList.remove("hidden");
+
+    createHearts();
+}
+
+
+// =========================
+// OPEN WHEN LETTER
+// =========================
+
+function openWhenLetter(number) {
+
+    const message =
+        document.getElementById("openWhenMessage");
+
+    if (number === 1) {
+
+        message.innerHTML =
+            "🥺 ඔයාට මාව මතක් වුණා නම්, මතක තියාගන්න... මමත් හැම වෙලාවෙම ඔයාව මතක් කරනවා 💗";
+    }
+
+    if (number === 2) {
+
+        message.innerHTML =
+            "😢 ඔයාට දුක හිතුණාම, තනියම දුක් වෙන්න එපා. මම ඔයා ළඟින් ඉන්නවා 💕";
+    }
+
+    if (number === 3) {
+
+        message.innerHTML =
+            "😡 මං එක්ක තරහා ගියා නම්... මට සමාවෙන්න 🥺 මම ඔයාව නැති කරගන්න කැමති නෑ 💗";
+    }
+
+    if (number === 4) {
+
+        message.innerHTML =
+            "💗 ඔයාට මට ආදරේ හිතුණා නම්... මම ඔයාට ඊටත් වඩා ආදරෙයි 😍";
+    }
+
+    createHearts();
+    createSparkles();
+}
+function createSparkles() {
+    // ...
+}
+
+
+// මෙතනින් පස්සේ අලුත් code එක දාන්න 👇
+
+function showOpenWhen() {
+    // ...
+}
+
+function openWhenLetter(number) {
+    // ...
+}
