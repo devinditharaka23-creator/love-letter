@@ -19,14 +19,18 @@
         height="1"
         src="https://www.youtube.com/embed/lOWf_LYn9_8?enablejsapi=1&loop=1&playlist=lOWf_LYn9_8"
         frameborder="0"
-        allow="autoplay">
+        allow="autoplay; encrypted-media">
     </iframe>
 
 
     <!-- MAIN APP -->
     <div class="app">
 
-        <!-- PAGE 1 -->
+
+        <!-- =========================
+             PAGE 1 - QUESTION
+        ========================== -->
+
         <section
             class="page"
             id="firstPage">
@@ -45,14 +49,19 @@
                 <button
                     id="yesBtn"
                     onclick="sayYes()">
+
                     ඔව් 💖
+
                 </button>
+
 
                 <button
                     id="noBtn"
                     onmouseover="moveNoButton()"
                     onclick="moveNoButton()">
+
                     නෑ 😏
+
                 </button>
 
             </div>
@@ -60,7 +69,11 @@
         </section>
 
 
-        <!-- PAGE 2 -->
+
+        <!-- =========================
+             PAGE 2 - YES PAGE
+        ========================== -->
+
         <section
             class="page hidden"
             id="yesPage">
@@ -71,79 +84,115 @@
                 alt="dudu bubu 2">
 
             <div class="message">
+
                 මම දැනගෙන හිටියා 😍💗
+
             </div>
+
 
             <button
                 class="continue-btn"
                 onclick="showLetter()">
+
                 මට කියන්න දෙයක් තියෙනවා 💌
+
             </button>
+
 
             <button
                 class="back-btn"
                 onclick="goBackToFirst()">
+
                 ආපහු යන්න ↩️
+
             </button>
 
         </section>
 
 
-        <!-- PAGE 3 -->
+
+        <!-- =========================
+             PAGE 3 - LOVE LETTER
+        ========================== -->
+
         <section
             class="page hidden"
             id="letterPage">
 
+
             <div class="letter">
 
                 <h2>
+
                     මගේ ආදරයට 💗
+
                 </h2>
 
-                <p>
-                    මගේ ආදරේ,
-                </p>
 
                 <p>
+
+                    මගේ ආදරේ,
+
+                </p>
+
+
+                <p>
+
                     ඔයා මගේ ජීවිතයට ආපු
                     ලස්සනම කෙනෙක්.
 
                     ඔයා එක්ක ගත කරන
                     හැම මොහොතක්ම
                     මට ගොඩක් වටිනවා. 💕
+
                 </p>
 
+
                 <p>
+
                     ඔයාගේ එක හිනාවක්
                     මගේ මුළු දවසම
                     ලස්සන කරන්න පුළුවන්.
 
                     ඔයා මගේ ජීවිතයේ ඉන්න එක ගැන
                     මම ගොඩක් වාසනාවන්තයි. 🥺💖
+
                 </p>
 
+
                 <p>
+
                     අපි අතර කොච්චර දේවල් සිද්ධ වුණත්,
                     මම ඔයාව අතහරින්න කැමති නෑ.
+
                 </p>
 
+
                 <p>
+
                     මම ඔයාට වචනවලින් කියන්න බැරි
                     තරම් ආදරෙයි. 💗
+
                 </p>
+
 
                 <p>
+
                     හැමදාමත් මගේ ළඟින් ඉන්න. 💕
+
                 </p>
 
+
                 <h3>
+
                     සදාකාලිකවම ඔයාගේ 💖
+
                 </h3>
 
             </div>
 
 
-            <!-- GO TO GIFTS BUTTON -->
+
             <button
                 class="continue-btn"
                 onclick="showGifts()">
@@ -153,7 +202,7 @@
             </button>
 
 
-            <!-- BACK BUTTON -->
+
             <button
                 class="back-btn"
                 onclick="goBackToYes()">
@@ -165,20 +214,32 @@
         </section>
 
 
-        <!-- PAGE 4 - GIFT BOXES -->
+
+        <!-- =========================
+             PAGE 4 - GIFTS
+        ========================== -->
+
         <section
             class="page hidden"
             id="giftPage">
 
+
             <h2>
+
                 ඔයාට gifts 3ක් තියෙනවා 🎁💗
+
             </h2>
 
+
             <p>
+
                 එකක් click කරන්න 😍
+
             </p>
 
+
             <div class="gift-container">
+
 
                 <button
                     class="gift"
@@ -188,6 +249,7 @@
 
                 </button>
 
+
                 <button
                     class="gift"
                     onclick="openGift(2)">
@@ -195,6 +257,7 @@
                     🎁
 
                 </button>
+
 
                 <button
                     class="gift"
@@ -207,67 +270,107 @@
             </div>
 
 
+
             <div
                 id="giftMessage"
                 class="gift-message">
+
             </div>
-<button
-    class="continue-btn"
-    onclick="showOpenWhen()">
 
-    ඊළඟට යමු 💌💗
 
-</button>
+
+            <!-- NEXT BUTTON -->
+
+            <button
+                class="continue-btn"
+                onclick="showOpenWhen()">
+
+                ඊළඟට යමු 💌💗
+
+            </button>
+
         </section>
 
-        <!-- PAGE 6 - OPEN WHEN LETTERS -->
 
-<section
-    class="page hidden"
-    id="openWhenPage">
 
-    <h2>
-        Open When Letters 💌
-    </h2>
+        <!-- =========================
+             PAGE 5 - OPEN WHEN
+        ========================== -->
 
-    <p>
-        ඔයාට ගැලපෙන එකක් open කරන්න 💗
-    </p>
+        <section
+            class="page hidden"
+            id="openWhenPage">
 
-    <button
-        class="continue-btn"
-        onclick="openWhenLetter(1)">
-        🥺 මාව මතක් වුණාම
-    </button>
 
-    <button
-        class="continue-btn"
-        onclick="openWhenLetter(2)">
-        😢 දුක හිතුණාම
-    </button>
+            <h2>
 
-    <button
-        class="continue-btn"
-        onclick="openWhenLetter(3)">
-        😡 මං එක්ක තරහා ගියාම
-    </button>
+                Open When Letters 💌
 
-    <button
-        class="continue-btn"
-        onclick="openWhenLetter(4)">
-        💗 මට ආදරේ හිතුණාම
-    </button>
+            </h2>
 
-    <div
-        id="openWhenMessage"
-        class="gift-message">
-    </div>
 
-</section>
+            <p>
+
+                ඔයාට ගැලපෙන එකක් open කරන්න 💗
+
+            </p>
+
+
+
+            <button
+                class="continue-btn"
+                onclick="openWhenLetter(1)">
+
+                🥺 මාව මතක් වුණාම
+
+            </button>
+
+
+
+            <button
+                class="continue-btn"
+                onclick="openWhenLetter(2)">
+
+                😢 දුක හිතුණාම
+
+            </button>
+
+
+
+            <button
+                class="continue-btn"
+                onclick="openWhenLetter(3)">
+
+                😡 මං එක්ක තරහා ගියාම
+
+            </button>
+
+
+
+            <button
+                class="continue-btn"
+                onclick="openWhenLetter(4)">
+
+                💗 මට ආදරේ හිතුණාම
+
+            </button>
+
+
+
+            <div
+                id="openWhenMessage"
+                class="gift-message">
+
+            </div>
+
+        </section>
+
+
     </div>
 
 
     <!-- JAVASCRIPT FILE -->
+
     <script src="script.js"></script>
 
 </body>
