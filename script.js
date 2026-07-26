@@ -209,5 +209,12 @@ function toggleMusic() {
         musicButton.innerHTML = "🔇";
 
     }
+function showGifts() {
 
+    letterPage.classList.add("hidden");
+
+    document.getElementById("giftPage").classList.remove("hidden");
+
+    createHearts();
+}
 }
