@@ -33,7 +33,16 @@ function sayYes() {
 // =========================
 // NO BUTTON
 // =========================
+function sayYes() {
+    document.getElementById("firstPage").classList.add("hidden");
+    document.getElementById("yesPage").classList.remove("hidden");
 
+    // Start YouTube song
+    document.getElementById("youtubeMusic").contentWindow.postMessage(
+        '{"event":"command","func":"playVideo","args":""}',
+        '*'
+    );
+}
 function moveNoButton() {
 
     const buttonWidth = noBtn.offsetWidth;
