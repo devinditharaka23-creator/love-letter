@@ -5,13 +5,7 @@
 const firstPage = document.getElementById("firstPage");
 const yesPage = document.getElementById("yesPage");
 const letterPage = document.getElementById("letterPage");
-
 const noBtn = document.getElementById("noBtn");
-
-const music = document.getElementById("backgroundMusic");
-const musicButton = document.getElementById("musicButton");
-
-let musicPlaying = false;
 
 
 // =========================
@@ -21,28 +15,23 @@ let musicPlaying = false;
 function sayYes() {
 
     firstPage.classList.add("hidden");
-
     yesPage.classList.remove("hidden");
 
     createHearts();
-
     createSparkles();
+
+    // Play YouTube song
+    document.getElementById("youtubeMusic").contentWindow.postMessage(
+        '{"event":"command","func":"playVideo","args":""}',
+        "*"
+    );
 }
 
 
 // =========================
 // NO BUTTON
 // =========================
-function sayYes() {
-    document.getElementById("firstPage").classList.add("hidden");
-    document.getElementById("yesPage").classList.remove("hidden");
 
-    // Start YouTube song
-    document.getElementById("youtubeMusic").contentWindow.postMessage(
-        '{"event":"command","func":"playVideo","args":""}',
-        '*'
-    );
-}
 function moveNoButton() {
 
     const buttonWidth = noBtn.offsetWidth;
@@ -67,11 +56,9 @@ function moveNoButton() {
 function showLetter() {
 
     yesPage.classList.add("hidden");
-
     letterPage.classList.remove("hidden");
 
     createHearts();
-
     createSparkles();
 }
 
@@ -83,7 +70,6 @@ function showLetter() {
 function goBackToFirst() {
 
     yesPage.classList.add("hidden");
-
     firstPage.classList.remove("hidden");
 
     noBtn.style.position = "relative";
@@ -99,8 +85,48 @@ function goBackToFirst() {
 function goBackToYes() {
 
     letterPage.classList.add("hidden");
-
     yesPage.classList.remove("hidden");
+}
+
+
+// =========================
+// SHOW GIFTS PAGE
+// =========================
+
+function showGifts() {
+
+    letterPage.classList.add("hidden");
+
+    document.getElementById("giftPage").classList.remove("hidden");
+
+    createHearts();
+}
+
+
+// =========================
+// OPEN GIFTS
+// =========================
+
+function openGift(number) {
+
+    const giftMessage = document.getElementById("giftMessage");
+
+    if (number === 1) {
+        giftMessage.innerHTML =
+            "💌 ඔයා මගේ ජීවිතයේ ලස්සනම කෙනා 💗";
+    }
+
+    if (number === 2) {
+        giftMessage.innerHTML =
+            "🧸 ඔයා එක්ක ඉන්න හැම මොහොතක්ම special 💕";
+    }
+
+    if (number === 3) {
+        giftMessage.innerHTML =
+            "💖 මම ඔයාට හැමදාමත් ආදරෙයි 💗";
+    }
+
+    createHearts();
 }
 
 
@@ -147,7 +173,6 @@ function createHearts() {
             }, 6000);
 
         }, i * 100);
-
     }
 }
 
@@ -181,58 +206,5 @@ function createSparkles() {
             }, 2000);
 
         }, i * 100);
-
     }
-}
-
-
-// =========================
-// MUSIC
-// =========================
-
-function toggleMusic() {
-
-    if (musicPlaying === false) {
-
-        music.play();
-
-        musicPlaying = true;
-
-        musicButton.innerHTML = "🔊";
-
-    } else {
-
-        music.pause();
-
-        musicPlaying = false;
-
-        musicButton.innerHTML = "🔇";
-
-    }
-function showGifts() {
-
-    letterPage.classList.add("hidden");
-
-    document.getElementById("giftPage").classList.remove("hidden");
-
-    createHearts();
-}
-    function openGift(number) {
-
-    const giftMessage = document.getElementById("giftMessage");
-
-    if (number === 1) {
-        giftMessage.innerHTML = "💌 ඔයා මගේ ජීවිතයේ ලස්සනම කෙනා 💗";
-    }
-
-    if (number === 2) {
-        giftMessage.innerHTML = "🧸 ඔයා එක්ක ඉන්න හැම මොහොතක්ම special 💕";
-    }
-
-    if (number === 3) {
-        giftMessage.innerHTML = "💖 මම ඔයාට හැමදාමත් ආදරෙයි 💗";
-    }
-
-    createHearts();
-}
 }
