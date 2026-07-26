@@ -1,49 +1,204 @@
-const envelope = document.getElementById("envelope");
-const letter = document.getElementById("letter");
+// =========================
+// GET ELEMENTS
+// =========================
 
-envelope.addEventListener("click", function () {
-    envelope.style.display = "none";
-    letter.classList.remove("hidden");
-});
+const firstPage = document.getElementById("firstPage");
+const yesPage = document.getElementById("yesPage");
+const letterPage = document.getElementById("letterPage");
 
-function nextPage() {
-    document.querySelector(".container").innerHTML = `
-        <div class="letter">
-            <h1>Do You Love Me? 🥰❤️</h1>
+const noBtn = document.getElementById("noBtn");
 
-            <div class="buttons">
-                <button onclick="yesAnswer()">YES ❤️</button>
-                <button id="noBtn" onmouseover="moveNoButton()">NO 😢</button>
-            </div>
-        </div>
-    `;
+const music = document.getElementById("backgroundMusic");
+const musicButton = document.getElementById("musicButton");
+
+let musicPlaying = false;
+
+
+// =========================
+// YES BUTTON
+// =========================
+
+function sayYes() {
+
+    firstPage.classList.add("hidden");
+
+    yesPage.classList.remove("hidden");
+
+    createHearts();
+
+    createSparkles();
 }
+
+
+// =========================
+// NO BUTTON
+// =========================
 
 function moveNoButton() {
-    const noBtn = document.getElementById("noBtn");
 
-    const x = Math.random() * (window.innerWidth - 150);
-    const y = Math.random() * (window.innerHeight - 100);
+    const buttonWidth = noBtn.offsetWidth;
+    const buttonHeight = noBtn.offsetHeight;
+
+    const maxX = window.innerWidth - buttonWidth - 20;
+    const maxY = window.innerHeight - buttonHeight - 20;
+
+    const randomX = Math.random() * maxX;
+    const randomY = Math.random() * maxY;
 
     noBtn.style.position = "fixed";
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
 }
 
-function yesAnswer() {
-    document.querySelector(".container").innerHTML = `
-        <div class="letter">
-            <h1>I Knew It! 😍❤️</h1>
 
-            <p>
-                You are my favorite person in the whole world. 💕
-                <br><br>
-                I Love You Forever and Ever ❤️🥰
-            </p>
+// =========================
+// SHOW LOVE LETTER
+// =========================
 
-            <div class="hearts">
-                ❤️ 💕 💖 💗 💓
-            </div>
-        </div>
-    `;
+function showLetter() {
+
+    yesPage.classList.add("hidden");
+
+    letterPage.classList.remove("hidden");
+
+    createHearts();
+
+    createSparkles();
+}
+
+
+// =========================
+// BACK TO FIRST PAGE
+// =========================
+
+function goBackToFirst() {
+
+    yesPage.classList.add("hidden");
+
+    firstPage.classList.remove("hidden");
+
+    noBtn.style.position = "relative";
+    noBtn.style.left = "auto";
+    noBtn.style.top = "auto";
+}
+
+
+// =========================
+// BACK TO YES PAGE
+// =========================
+
+function goBackToYes() {
+
+    letterPage.classList.add("hidden");
+
+    yesPage.classList.remove("hidden");
+}
+
+
+// =========================
+// FLOATING HEARTS
+// =========================
+
+function createHearts() {
+
+    for (let i = 0; i < 30; i++) {
+
+        setTimeout(function () {
+
+            const heart = document.createElement("div");
+
+            heart.className = "heart";
+
+            const hearts = [
+                "💗",
+                "💕",
+                "💖",
+                "💘",
+                "💝",
+                "💞"
+            ];
+
+            heart.innerHTML =
+                hearts[
+                    Math.floor(
+                        Math.random() * hearts.length
+                    )
+                ];
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+            heart.style.animationDuration =
+                Math.random() * 3 + 3 + "s";
+
+            document.body.appendChild(heart);
+
+            setTimeout(function () {
+                heart.remove();
+            }, 6000);
+
+        }, i * 100);
+
+    }
+}
+
+
+// =========================
+// SPARKLES
+// =========================
+
+function createSparkles() {
+
+    for (let i = 0; i < 20; i++) {
+
+        setTimeout(function () {
+
+            const sparkle = document.createElement("div");
+
+            sparkle.className = "sparkle";
+
+            sparkle.innerHTML = "✨";
+
+            sparkle.style.left =
+                Math.random() * 100 + "vw";
+
+            sparkle.style.top =
+                Math.random() * 100 + "vh";
+
+            document.body.appendChild(sparkle);
+
+            setTimeout(function () {
+                sparkle.remove();
+            }, 2000);
+
+        }, i * 100);
+
+    }
+}
+
+
+// =========================
+// MUSIC
+// =========================
+
+function toggleMusic() {
+
+    if (musicPlaying === false) {
+
+        music.play();
+
+        musicPlaying = true;
+
+        musicButton.innerHTML = "🔊";
+
+    } else {
+
+        music.pause();
+
+        musicPlaying = false;
+
+        musicButton.innerHTML = "🔇";
+
+    }
+
 }
