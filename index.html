@@ -1,40 +1,1363 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Love Letter ❤️</title>
+<html lang="si">
 
-  <link rel="stylesheet" href="style.css">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For My Love 💗</title>
+
+
+    <style>
+
+        /* =========================
+           BASIC RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+
+            min-height: 100vh;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffdce8,
+                    #ffeef4,
+                    #ffd6e5
+                );
+
+            font-family:
+                Arial,
+                "Noto Sans Sinhala",
+                sans-serif;
+
+            overflow: hidden;
+
+        }
+
+
+        /* =========================
+           MAIN APP
+        ========================= */
+
+        .app {
+
+            width: 100%;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            position: relative;
+
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 25px;
+
+            animation: pageShow 0.8s ease;
+
+        }
+
+
+        /* =========================
+           HIDE PAGE
+        ========================= */
+
+        .hidden {
+
+            display: none !important;
+
+        }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        .cute-image {
+
+            width: 240px;
+
+            height: 240px;
+
+            object-fit: cover;
+
+            border-radius: 20px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+
+                0 10px 25px
+                rgba(255, 90, 130, 0.2);
+
+            background: white;
+
+        }
+
+
+        /* =========================
+           TITLE
+        ========================= */
+
+        h1 {
+
+            font-size: 32px;
+
+            color: #111;
+
+            margin-bottom: 25px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =========================
+           BUTTON AREA
+        ========================= */
+
+        .buttons {
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 20px;
+
+        }
+
+
+        /* =========================
+           ALL BUTTONS
+        ========================= */
+
+        button {
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 17px;
+
+            padding: 12px 26px;
+
+            border-radius: 25px;
+
+            transition: 0.3s ease;
+
+            font-weight: bold;
+
+        }
+
+
+        button:hover {
+
+            transform: scale(1.1);
+
+        }
+
+
+        /* =========================
+           YES BUTTON
+        ========================= */
+
+        #yesBtn {
+
+            background: #ff6685;
+
+            color: white;
+
+            box-shadow:
+
+                0 6px 15px
+                rgba(255, 70, 110, 0.3);
+
+        }
+
+
+        #yesBtn:hover {
+
+            background: #ff4f73;
+
+        }
+
+
+        /* =========================
+           NO BUTTON
+        ========================= */
+
+        #noBtn {
+
+            background: white;
+
+            color: #ff5278;
+
+            position: relative;
+
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+
+            font-size: 34px;
+
+            font-weight: bold;
+
+            color: #111;
+
+            margin-top: 10px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* =========================
+           CONTINUE BUTTON
+        ========================= */
+
+        .continue-btn {
+
+            background: #ff6685;
+
+            color: white;
+
+            margin-top: 10px;
+
+        }
+
+
+        /* =========================
+           LETTER BOX
+        ========================= */
+
+        .letter {
+
+            width: 100%;
+
+            max-width: 430px;
+
+            max-height: 80vh;
+
+            overflow-y: auto;
+
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 22px;
+
+            box-shadow:
+
+                0 15px 35px
+                rgba(255, 70, 110, 0.2);
+
+            color: #555;
+
+            line-height: 1.9;
+
+            font-size: 17px;
+
+            text-align: left;
+
+        }
+
+
+        /* =========================
+           LETTER TITLE
+        ========================= */
+
+        .letter h2 {
+
+            text-align: center;
+
+            color: #ff4f78;
+
+            font-size: 27px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        /* =========================
+           LETTER PARAGRAPHS
+        ========================= */
+
+        .letter p {
+
+            margin-bottom: 15px;
+
+        }
+
+
+        /* =========================
+           LETTER SIGNATURE
+        ========================= */
+
+        .letter h3 {
+
+            color: #ff4f78;
+
+            text-align: right;
+
+            margin-top: 20px;
+
+        }
+
+
+        /* =========================
+           MUSIC BUTTON
+        ========================= */
+
+        .music-btn {
+
+            position: fixed;
+
+            right: 20px;
+
+            top: 20px;
+
+            width: 48px;
+
+            height: 48px;
+
+            padding: 0;
+
+            border-radius: 50%;
+
+            background: white;
+
+            color: #ff4f78;
+
+            box-shadow:
+
+                0 5px 15px
+                rgba(0, 0, 0, 0.12);
+
+            z-index: 100;
+
+        }
+
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-btn {
+
+            margin-top: 20px;
+
+            background: white;
+
+            color: #ff4f78;
+
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+        .heart {
+
+            position: fixed;
+
+            bottom: -40px;
+
+            font-size: 25px;
+
+            pointer-events: none;
+
+            z-index: 50;
+
+            animation:
+
+                floatHeart
+                5s
+                linear
+                forwards;
+
+        }
+
+
+        @keyframes floatHeart {
+
+            0% {
+
+                transform:
+
+                    translateY(0)
+                    rotate(0deg);
+
+                opacity: 1;
+
+            }
+
+
+            100% {
+
+                transform:
+
+                    translateY(-110vh)
+                    rotate(360deg);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================
+           SPARKLES
+        ========================= */
+
+        .sparkle {
+
+            position: fixed;
+
+            font-size: 20px;
+
+            pointer-events: none;
+
+            animation:
+
+                sparkleAnimation
+                2s
+                ease-out
+                forwards;
+
+        }
+
+
+        @keyframes sparkleAnimation {
+
+            0% {
+
+                transform: scale(0);
+
+                opacity: 0;
+
+            }
+
+
+            50% {
+
+                transform: scale(1.3);
+
+                opacity: 1;
+
+            }
+
+
+            100% {
+
+                transform: scale(0);
+
+                opacity: 0;
+
+            }
+
+        }
+
+
+        /* =========================
+           PAGE ANIMATION
+        ========================= */
+
+        @keyframes pageShow {
+
+            from {
+
+                opacity: 0;
+
+                transform: scale(0.8);
+
+            }
+
+
+            to {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+
+            h1 {
+
+                font-size: 27px;
+
+            }
+
+
+            .message {
+
+                font-size: 29px;
+
+            }
+
+
+            .cute-image {
+
+                width: 210px;
+
+                height: 210px;
+
+            }
+
+
+            .letter {
+
+                padding: 23px;
+
+                font-size: 16px;
+
+            }
+
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
-<div class="container">
 
-    <div id="envelope" class="envelope">
-        💌
+    <!-- =========================
+         MUSIC BUTTON
+    ========================= -->
+
+    <button
+        class="music-btn"
+        onclick="toggleMusic()"
+        id="musicButton">
+
+        🔇
+
+    </button>
+
+
+    <!-- =========================
+         AUDIO
+    ========================= -->
+
+    <audio
+        id="backgroundMusic"
+        loop>
+
+        <!--
+        මෙතන ඔයාගේ music file එක දාන්න.
+
+        උදාහරණයක්:
+
+        <source src="music.mp3" type="audio/mpeg">
+
+        -->
+
+    </audio>
+
+
+    <!-- =========================
+         MAIN APP
+    ========================= -->
+
+    <div class="app">
+
+
+        <!-- =========================
+             PAGE 1
+        ========================= -->
+
+        <section
+            class="page"
+            id="firstPage">
+
+
+            <!--
+            IMAGE එක වෙනස් කරන්න පුළුවන්.
+
+            ඔයාගේ image එක folder එකේ තියෙනවා නම්:
+
+            src="love.gif"
+
+            -->
+
+            <img
+
+                class="cute-image"
+
+                src="https://media.tenor.com/0AVbKGY_MxMAAAAC/love-bear.gif"
+
+                alt="Cute Love">
+
+
+            <h1>
+
+                ඔයා මට ආදරෙයිද? 💗
+
+            </h1>
+
+
+            <div class="buttons">
+
+
+                <button
+                    id="yesBtn"
+                    onclick="sayYes()">
+
+                    ඔව් 💖
+
+                </button>
+
+
+                <button
+                    id="noBtn"
+                    onmouseover="moveNoButton()"
+                    onclick="moveNoButton()">
+
+                    නෑ 😏
+
+                </button>
+
+
+            </div>
+
+
+        </section>
+
+
+        <!-- =========================
+             PAGE 2
+        ========================= -->
+
+        <section
+
+            class="page hidden"
+
+            id="yesPage">
+
+
+            <img
+
+                class="cute-image"
+
+                src="https://media.tenor.com/2roX3uxz_68AAAAC/bear-love.gif"
+
+                alt="Happy Love">
+
+
+            <div class="message">
+
+                මම දැනගෙන හිටියා 😍💗
+
+            </div>
+
+
+            <button
+
+                class="continue-btn"
+
+                onclick="showLetter()">
+
+                මට කියන්න දෙයක් තියෙනවා 💌
+
+            </button>
+
+
+            <button
+
+                class="back-btn"
+
+                onclick="goBackToFirst()">
+
+                ආපහු යන්න ↩️
+
+            </button>
+
+
+        </section>
+
+
+        <!-- =========================
+             PAGE 3
+        ========================= -->
+
+        <section
+
+            class="page hidden"
+
+            id="letterPage">
+
+
+            <div class="letter">
+
+
+                <h2>
+
+                    මගේ ආදරයට 💗
+
+                </h2>
+
+
+                <p>
+
+                    මගේ ආදරේ,
+
+                </p>
+
+
+                <p>
+
+                    ඔයා මගේ ජීවිතයට ආපු
+                    ලස්සනම කෙනෙක්.
+
+                    ඔයා එක්ක ගත කරන
+                    හැම මොහොතක්ම
+                    මට ගොඩක් වටිනවා. 💕
+
+                </p>
+
+
+                <p>
+
+                    ඔයාගේ එක හිනාවක්
+                    මගේ මුළු දවසම
+                    ලස්සන කරන්න පුළුවන්.
+
+                    ඔයා මගේ ජීවිතයේ ඉන්න එක ගැන
+                    මම ගොඩක් වාසනාවන්තයි. 🥺💖
+
+                </p>
+
+
+                <p>
+
+                    අපි අතර කොච්චර දේවල් සිද්ධ වුණත්,
+                    මම ඔයාව අතහරින්න කැමති නෑ.
+
+                </p>
+
+
+                <p>
+
+                    මම ඔයාට වචනවලින් කියන්න බැරි
+                    තරම් ආදරෙයි. 💗
+
+                </p>
+
+
+                <p>
+
+                    හැමදාමත් මගේ ළඟින් ඉන්න. 💕
+
+                </p>
+
+
+                <h3>
+
+                    සදාකාලිකවම ඔයාගේ 💖
+
+                </h3>
+
+
+            </div>
+
+
+            <button
+
+                class="back-btn"
+
+                onclick="goBackToYes()">
+
+                ආපහු යන්න ↩️
+
+            </button>
+
+
+        </section>
+
+
     </div>
 
-    <div id="letter" class="letter hidden">
-        <h1>My Love ❤️</h1>
 
-        <p>
-            Every day with you is beautiful. <br><br>
+    <script>
 
-            Thank you for being in my life. 💕
 
-            <br><br>
+        /* =========================
+           GET ELEMENTS
+        ========================= */
 
-            I Love You Forever ❤️
-        </p>
 
-        <button onclick="nextPage()">Continue ➜</button>
-    </div>
+        const firstPage =
 
-</div>
+            document.getElementById(
+                "firstPage"
+            );
 
-<script src="script.js"></script>
+
+        const yesPage =
+
+            document.getElementById(
+                "yesPage"
+            );
+
+
+        const letterPage =
+
+            document.getElementById(
+                "letterPage"
+            );
+
+
+        const noBtn =
+
+            document.getElementById(
+                "noBtn"
+            );
+
+
+        const music =
+
+            document.getElementById(
+                "backgroundMusic"
+            );
+
+
+        const musicButton =
+
+            document.getElementById(
+                "musicButton"
+            );
+
+
+        let musicPlaying = false;
+
+
+        /* =========================
+           YES BUTTON
+        ========================= */
+
+
+        function sayYes() {
+
+
+            firstPage.classList.add(
+                "hidden"
+            );
+
+
+            yesPage.classList.remove(
+                "hidden"
+            );
+
+
+            createHearts();
+
+
+            createSparkles();
+
+
+        }
+
+
+        /* =========================
+           NO BUTTON MOVE
+        ========================= */
+
+
+        function moveNoButton() {
+
+
+            const buttonWidth =
+                noBtn.offsetWidth;
+
+
+            const buttonHeight =
+                noBtn.offsetHeight;
+
+
+            const maxX =
+
+                window.innerWidth
+                -
+                buttonWidth
+                -
+                20;
+
+
+            const maxY =
+
+                window.innerHeight
+                -
+                buttonHeight
+                -
+                20;
+
+
+            const randomX =
+
+                Math.random()
+                *
+                maxX;
+
+
+            const randomY =
+
+                Math.random()
+                *
+                maxY;
+
+
+            noBtn.style.position =
+                "fixed";
+
+
+            noBtn.style.left =
+
+                randomX + "px";
+
+
+            noBtn.style.top =
+
+                randomY + "px";
+
+
+        }
+
+
+        /* =========================
+           SHOW LETTER
+        ========================= */
+
+
+        function showLetter() {
+
+
+            yesPage.classList.add(
+                "hidden"
+            );
+
+
+            letterPage.classList.remove(
+                "hidden"
+            );
+
+
+            createHearts();
+
+
+            createSparkles();
+
+
+        }
+
+
+        /* =========================
+           BACK TO FIRST PAGE
+        ========================= */
+
+
+        function goBackToFirst() {
+
+
+            yesPage.classList.add(
+                "hidden"
+            );
+
+
+            firstPage.classList.remove(
+                "hidden"
+            );
+
+
+            noBtn.style.position =
+                "relative";
+
+
+            noBtn.style.left =
+                "auto";
+
+
+            noBtn.style.top =
+                "auto";
+
+
+        }
+
+
+        /* =========================
+           BACK TO YES PAGE
+        ========================= */
+
+
+        function goBackToYes() {
+
+
+            letterPage.classList.add(
+                "hidden"
+            );
+
+
+            yesPage.classList.remove(
+                "hidden"
+            );
+
+
+        }
+
+
+        /* =========================
+           FLOATING HEARTS
+        ========================= */
+
+
+        function createHearts() {
+
+
+            for (
+
+                let i = 0;
+
+                i < 30;
+
+                i++
+
+            ) {
+
+
+                setTimeout(
+
+                    function () {
+
+
+                        const heart =
+
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        heart.className =
+                            "heart";
+
+
+                        const hearts = [
+
+                            "💗",
+
+                            "💕",
+
+                            "💖",
+
+                            "💘",
+
+                            "💝",
+
+                            "💞"
+
+                        ];
+
+
+                        heart.innerHTML =
+
+                            hearts[
+
+                                Math.floor(
+
+                                    Math.random()
+                                    *
+                                    hearts.length
+
+                                )
+
+                            ];
+
+
+                        heart.style.left =
+
+                            Math.random()
+                            *
+                            100
+                            +
+                            "vw";
+
+
+                        heart.style.animationDuration =
+
+                            Math.random()
+                            *
+                            3
+                            +
+                            3
+                            +
+                            "s";
+
+
+                        document.body.appendChild(
+                            heart
+                        );
+
+
+                        setTimeout(
+
+                            function () {
+
+                                heart.remove();
+
+                            },
+
+                            6000
+
+                        );
+
+
+                    },
+
+                    i * 100
+
+                );
+
+
+            }
+
+
+        }
+
+
+        /* =========================
+           SPARKLES
+        ========================= */
+
+
+        function createSparkles() {
+
+
+            for (
+
+                let i = 0;
+
+                i < 20;
+
+                i++
+
+            ) {
+
+
+                setTimeout(
+
+                    function () {
+
+
+                        const sparkle =
+
+                            document.createElement(
+                                "div"
+                            );
+
+
+                        sparkle.className =
+                            "sparkle";
+
+
+                        sparkle.innerHTML =
+                            "✨";
+
+
+                        sparkle.style.left =
+
+                            Math.random()
+                            *
+                            100
+                            +
+                            "vw";
+
+
+                        sparkle.style.top =
+
+                            Math.random()
+                            *
+                            100
+                            +
+                            "vh";
+
+
+                        document.body.appendChild(
+                            sparkle
+                        );
+
+
+                        setTimeout(
+
+                            function () {
+
+                                sparkle.remove();
+
+                            },
+
+                            2000
+
+                        );
+
+
+                    },
+
+                    i * 100
+
+                );
+
+
+            }
+
+
+        }
+
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+
+        function toggleMusic() {
+
+
+            if (
+
+                musicPlaying === false
+
+            ) {
+
+
+                music.play();
+
+
+                musicPlaying =
+                    true;
+
+
+                musicButton.innerHTML =
+                    "🔊";
+
+
+            }
+
+
+            else {
+
+
+                music.pause();
+
+
+                musicPlaying =
+                    false;
+
+
+                musicButton.innerHTML =
+                    "🔇";
+
+
+            }
+
+
+        }
+
+
+        /* =========================
+           RANDOM HEARTS
+        ========================= */
+
+
+        setInterval(
+
+            function () {
+
+
+                if (
+
+                    !firstPage.classList.contains(
+                        "hidden"
+                    )
+
+                ) {
+
+                    return;
+
+                }
+
+
+                createHearts();
+
+
+            },
+
+            7000
+
+        );
+
+
+    </script>
+
 
 </body>
+
 </html>
