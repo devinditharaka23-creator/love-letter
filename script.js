@@ -217,4 +217,22 @@ function showGifts() {
 
     createHearts();
 }
+    function openGift(number) {
+
+    const giftMessage = document.getElementById("giftMessage");
+
+    if (number === 1) {
+        giftMessage.innerHTML = "💌 ඔයා මගේ ජීවිතයේ ලස්සනම කෙනා 💗";
+    }
+
+    if (number === 2) {
+        giftMessage.innerHTML = "🧸 ඔයා එක්ක ඉන්න හැම මොහොතක්ම special 💕";
+    }
+
+    if (number === 3) {
+        giftMessage.innerHTML = "💖 මම ඔයාට හැමදාමත් ආදරෙයි 💗";
+    }
+
+    createHearts();
+}
 }
