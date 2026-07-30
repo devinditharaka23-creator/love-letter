@@ -290,4 +290,17 @@ function createSparkles() {
     createHearts();
     createSparkles();
 }
+    // =========================
+// PAGE 6 → PAGE 7
+// =========================
+
+function showPage7() {
+
+    document.getElementById("page6").classList.add("hidden");
+
+    document.getElementById("page7").classList.remove("hidden");
+
+    createHearts();
+    createSparkles();
+}
 }
