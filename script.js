@@ -281,4 +281,13 @@ function createSparkles() {
 
         }, i * 100);
     }
+    function showPage6() {
+
+    document.getElementById("openWhenPage").classList.add("hidden");
+
+    document.getElementById("page6").classList.remove("hidden");
+
+    createHearts();
+    createSparkles();
+}
 }
