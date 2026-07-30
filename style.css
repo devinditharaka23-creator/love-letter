@@ -453,4 +453,44 @@ button:hover {
     .gift-message {
         font-size: 20px;
     }
+
+    /* =========================
+   PAGE 6 - REASONS
+========================= */
+
+.page-text {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.reason-card {
+    width: 100%;
+    max-width: 430px;
+}
+
+.reason {
+    background: white;
+    margin: 12px 0;
+    padding: 16px 20px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(255, 70, 110, 0.12);
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    font-size: 25px;
+    transition: 0.3s ease;
+}
+
+.reason:hover {
+    transform: scale(1.04);
+}
+
+.reason span {
+    font-size: 17px;
+    color: #555;
+    font-weight: bold;
+}
 }
