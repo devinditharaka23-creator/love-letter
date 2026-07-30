@@ -24,7 +24,7 @@ function sayYes() {
     createHearts();
     createSparkles();
 
-    // YouTube music
+    // YouTube song
     const youtubeMusic =
         document.getElementById("youtubeMusic");
 
@@ -48,14 +48,21 @@ function sayYes() {
 
 function moveNoButton() {
 
-    const buttonWidth = noBtn.offsetWidth;
-    const buttonHeight = noBtn.offsetHeight;
+    const buttonWidth =
+        noBtn.offsetWidth;
+
+    const buttonHeight =
+        noBtn.offsetHeight;
 
     const maxX =
-        window.innerWidth - buttonWidth - 20;
+        window.innerWidth -
+        buttonWidth -
+        20;
 
     const maxY =
-        window.innerHeight - buttonHeight - 20;
+        window.innerHeight -
+        buttonHeight -
+        20;
 
     const randomX =
         Math.random() * maxX;
@@ -98,9 +105,14 @@ function goBackToFirst() {
 
     firstPage.classList.remove("hidden");
 
-    noBtn.style.position = "relative";
-    noBtn.style.left = "auto";
-    noBtn.style.top = "auto";
+    noBtn.style.position =
+        "relative";
+
+    noBtn.style.left =
+        "auto";
+
+    noBtn.style.top =
+        "auto";
 }
 
 
@@ -159,7 +171,6 @@ function openGift(number) {
     }
 
     createHearts();
-    createSparkles();
 }
 
 
@@ -265,7 +276,8 @@ function createHearts() {
             const heart =
                 document.createElement("div");
 
-            heart.className = "heart";
+            heart.className =
+                "heart";
 
             const hearts = [
                 "💗",
@@ -285,12 +297,16 @@ function createHearts() {
                 ];
 
             heart.style.left =
-                Math.random() * 100 + "vw";
+                Math.random() * 100 +
+                "vw";
 
             heart.style.animationDuration =
-                Math.random() * 3 + 3 + "s";
+                Math.random() * 3 +
+                3 + "s";
 
-            document.body.appendChild(heart);
+            document.body.appendChild(
+                heart
+            );
 
             setTimeout(function () {
 
@@ -316,17 +332,23 @@ function createSparkles() {
             const sparkle =
                 document.createElement("div");
 
-            sparkle.className = "sparkle";
+            sparkle.className =
+                "sparkle";
 
-            sparkle.innerHTML = "✨";
+            sparkle.innerHTML =
+                "✨";
 
             sparkle.style.left =
-                Math.random() * 100 + "vw";
+                Math.random() * 100 +
+                "vw";
 
             sparkle.style.top =
-                Math.random() * 100 + "vh";
+                Math.random() * 100 +
+                "vh";
 
-            document.body.appendChild(sparkle);
+            document.body.appendChild(
+                sparkle
+            );
 
             setTimeout(function () {
 
@@ -336,6 +358,19 @@ function createSparkles() {
 
         }, i * 100);
     }
-}
-```
+    // =========================
+// PAGE 6 → PAGE 7
+// =========================
 
+function showPage7() {
+
+    document.getElementById("page6")
+        .classList.add("hidden");
+
+    document.getElementById("page7")
+        .classList.remove("hidden");
+
+    createHearts();
+    createSparkles();
+}
+}     oya js
