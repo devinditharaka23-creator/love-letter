@@ -15,29 +15,36 @@ const noBtn = document.getElementById("noBtn");
 
 // =====================================================
 // PAGE 1 → PAGE 2
-// YES BUTTON + MUSIC
 // =====================================================
 
 function sayYes() {
 
-    // Page 1 hide
     firstPage.classList.add("hidden");
-
-    // Page 2 show
     yesPage.classList.remove("hidden");
 
-    // Hearts + sparkles
     createHearts();
     createSparkles();
 
-    // =========================
-    // PLAY YOUTUBE MUSIC
-    // =========================
+    // Music
+    playMusic();
+}
+
+
+// =====================================================
+// PLAY MUSIC
+// =====================================================
+
+function playMusic() {
 
     const youtubeMusic =
         document.getElementById("youtubeMusic");
 
-    if (youtubeMusic) {
+    if (!youtubeMusic) {
+        console.log("YouTube iframe not found");
+        return;
+    }
+
+    try {
 
         youtubeMusic.contentWindow.postMessage(
             JSON.stringify({
@@ -47,6 +54,11 @@ function sayYes() {
             }),
             "*"
         );
+
+    } catch (error) {
+
+        console.log("Music error:", error);
+
     }
 }
 
@@ -57,35 +69,26 @@ function sayYes() {
 
 function moveNoButton() {
 
-    const buttonWidth =
-        noBtn.offsetWidth;
+    if (!noBtn) return;
 
-    const buttonHeight =
-        noBtn.offsetHeight;
+    const buttonWidth = noBtn.offsetWidth;
+    const buttonHeight = noBtn.offsetHeight;
 
     const maxX =
-        window.innerWidth -
-        buttonWidth -
-        20;
+        window.innerWidth - buttonWidth - 20;
 
     const maxY =
-        window.innerHeight -
-        buttonHeight -
-        20;
+        window.innerHeight - buttonHeight - 20;
 
     const randomX =
-        Math.random() * maxX;
+        Math.max(0, Math.random() * maxX);
 
     const randomY =
-        Math.random() * maxY;
+        Math.max(0, Math.random() * maxY);
 
     noBtn.style.position = "fixed";
-
-    noBtn.style.left =
-        randomX + "px";
-
-    noBtn.style.top =
-        randomY + "px";
+    noBtn.style.left = randomX + "px";
+    noBtn.style.top = randomY + "px";
 }
 
 
@@ -106,7 +109,6 @@ function showLetter() {
 
 // =====================================================
 // PAGE 2 → PAGE 1
-// BACK BUTTON
 // =====================================================
 
 function goBackToFirst() {
@@ -115,10 +117,13 @@ function goBackToFirst() {
 
     firstPage.classList.remove("hidden");
 
-    // Reset NO button
-    noBtn.style.position = "relative";
-    noBtn.style.left = "auto";
-    noBtn.style.top = "auto";
+    if (noBtn) {
+
+        noBtn.style.position = "relative";
+        noBtn.style.left = "auto";
+        noBtn.style.top = "auto";
+
+    }
 }
 
 
@@ -136,7 +141,6 @@ function goBackToYes() {
 
 // =====================================================
 // PAGE 3 → PAGE 4
-// GIFTS
 // =====================================================
 
 function showGifts() {
@@ -151,13 +155,15 @@ function showGifts() {
 
 
 // =====================================================
-// OPEN GIFT
+// OPEN GIFTS
 // =====================================================
 
 function openGift(number) {
 
     const giftMessage =
         document.getElementById("giftMessage");
+
+    if (!giftMessage) return;
 
 
     if (number === 1) {
@@ -167,14 +173,12 @@ function openGift(number) {
 
     }
 
-
     else if (number === 2) {
 
         giftMessage.innerHTML =
             "🧸 ඔයා එක්ක ඉන්න හැම මොහොතක්ම special 💕";
 
     }
-
 
     else if (number === 3) {
 
@@ -183,14 +187,12 @@ function openGift(number) {
 
     }
 
-
     createHearts();
 }
 
 
 // =====================================================
 // PAGE 4 → PAGE 5
-// OPEN WHEN
 // =====================================================
 
 function showOpenWhen() {
@@ -213,6 +215,8 @@ function openWhenLetter(number) {
     const message =
         document.getElementById("openWhenMessage");
 
+    if (!message) return;
+
 
     if (number === 1) {
 
@@ -221,14 +225,12 @@ function openWhenLetter(number) {
 
     }
 
-
     else if (number === 2) {
 
         message.innerHTML =
             "😢 ඔයාට දුක හිතුණාම, තනියම දුක් වෙන්න එපා. මම ඔයා ළඟින් ඉන්නවා 💕";
 
     }
-
 
     else if (number === 3) {
 
@@ -237,14 +239,12 @@ function openWhenLetter(number) {
 
     }
 
-
     else if (number === 4) {
 
         message.innerHTML =
             "💗 ඔයාට මට ආදරේ හිතුණා නම්... මම ඔයාට ඊටත් වඩා ආදරෙයි 😍";
 
     }
-
 
     createHearts();
     createSparkles();
@@ -253,7 +253,6 @@ function openWhenLetter(number) {
 
 // =====================================================
 // PAGE 5 → PAGE 6
-// REASONS
 // =====================================================
 
 function showPage6() {
@@ -269,7 +268,6 @@ function showPage6() {
 
 // =====================================================
 // PAGE 6 → PAGE 7
-// MEMORIES
 // =====================================================
 
 function showPage7() {
@@ -280,6 +278,33 @@ function showPage7() {
 
     createHearts();
     createSparkles();
+}
+
+
+// =====================================================
+// PAGE 7 → PAGE 8
+// =====================================================
+
+function showPage8() {
+
+    page7.classList.add("hidden");
+
+    // Page 8 තාම HTML එකේ නැත්නම් error නොවෙන්න
+    const page8 =
+        document.getElementById("page8");
+
+    if (page8) {
+
+        page8.classList.remove("hidden");
+
+        createHearts();
+        createSparkles();
+
+    } else {
+
+        console.log("Page 8 HTML එක තාම add කරලා නැහැ.");
+
+    }
 }
 
 
@@ -296,10 +321,7 @@ function createHearts() {
             const heart =
                 document.createElement("div");
 
-
-            heart.className =
-                "heart";
-
+            heart.className = "heart";
 
             const hearts = [
                 "💗",
@@ -310,38 +332,26 @@ function createHearts() {
                 "💞"
             ];
 
-
             heart.innerHTML =
                 hearts[
                     Math.floor(
-                        Math.random() *
-                        hearts.length
+                        Math.random() * hearts.length
                     )
                 ];
 
-
             heart.style.left =
-                Math.random() * 100 +
-                "vw";
-
+                Math.random() * 100 + "vw";
 
             heart.style.animationDuration =
-                Math.random() * 3 +
-                3 +
-                "s";
+                Math.random() * 3 + 3 + "s";
 
-
-            document.body.appendChild(
-                heart
-            );
-
+            document.body.appendChild(heart);
 
             setTimeout(function () {
 
                 heart.remove();
 
             }, 6000);
-
 
         }, i * 100);
     }
@@ -361,36 +371,23 @@ function createSparkles() {
             const sparkle =
                 document.createElement("div");
 
+            sparkle.className = "sparkle";
 
-            sparkle.className =
-                "sparkle";
-
-
-            sparkle.innerHTML =
-                "✨";
-
+            sparkle.innerHTML = "✨";
 
             sparkle.style.left =
-                Math.random() * 100 +
-                "vw";
-
+                Math.random() * 100 + "vw";
 
             sparkle.style.top =
-                Math.random() * 100 +
-                "vh";
+                Math.random() * 100 + "vh";
 
-
-            document.body.appendChild(
-                sparkle
-            );
-
+            document.body.appendChild(sparkle);
 
             setTimeout(function () {
 
                 sparkle.remove();
 
             }, 2000);
-
 
         }, i * 100);
     }
