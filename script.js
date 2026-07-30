@@ -1,6 +1,6 @@
-// ===============================
-// GET PAGES
-// ===============================
+// =====================================================
+// GET ELEMENTS
+// =====================================================
 
 const firstPage = document.getElementById("firstPage");
 const yesPage = document.getElementById("yesPage");
@@ -13,50 +13,65 @@ const page7 = document.getElementById("page7");
 const noBtn = document.getElementById("noBtn");
 
 
-// ===============================
-// SHOW ONLY ONE PAGE
-// ===============================
-
-function showPage(page) {
-
-    const pages = document.querySelectorAll(".page");
-
-    pages.forEach(function (p) {
-        p.classList.add("hidden");
-    });
-
-    page.classList.remove("hidden");
-
-    createHearts();
-    createSparkles();
-}
-
-
-// ===============================
+// =====================================================
 // PAGE 1 → PAGE 2
-// ===============================
+// YES BUTTON + MUSIC
+// =====================================================
 
 function sayYes() {
 
-    showPage(yesPage);
+    // Page 1 hide
+    firstPage.classList.add("hidden");
 
+    // Page 2 show
+    yesPage.classList.remove("hidden");
+
+    // Hearts + sparkles
+    createHearts();
+    createSparkles();
+
+    // =========================
+    // PLAY YOUTUBE MUSIC
+    // =========================
+
+    const youtubeMusic =
+        document.getElementById("youtubeMusic");
+
+    if (youtubeMusic) {
+
+        youtubeMusic.contentWindow.postMessage(
+            JSON.stringify({
+                event: "command",
+                func: "playVideo",
+                args: []
+            }),
+            "*"
+        );
+    }
 }
 
 
-// ===============================
+// =====================================================
 // NO BUTTON
-// ===============================
+// =====================================================
 
 function moveNoButton() {
 
-    const buttonWidth = noBtn.offsetWidth;
-    const buttonHeight = noBtn.offsetHeight;
+    const buttonWidth =
+        noBtn.offsetWidth;
+
+    const buttonHeight =
+        noBtn.offsetHeight;
 
     const maxX =
-        window.innerWidth - buttonWidth - 20;
+        window.innerWidth -
+        buttonWidth -
+        20;
 
     const maxY =
-        window.innerHeight - buttonHeight - 20;
+        window.innerHeight -
+        buttonHeight -
+        20;
 
     const randomX =
         Math.random() * maxX;
@@ -65,111 +80,139 @@ function moveNoButton() {
         Math.random() * maxY;
 
     noBtn.style.position = "fixed";
-    noBtn.style.left = randomX + "px";
-    noBtn.style.top = randomY + "px";
+
+    noBtn.style.left =
+        randomX + "px";
+
+    noBtn.style.top =
+        randomY + "px";
 }
 
 
-// ===============================
+// =====================================================
 // PAGE 2 → PAGE 3
-// ===============================
+// =====================================================
 
 function showLetter() {
 
-    showPage(letterPage);
+    yesPage.classList.add("hidden");
 
+    letterPage.classList.remove("hidden");
+
+    createHearts();
+    createSparkles();
 }
 
 
-// ===============================
+// =====================================================
 // PAGE 2 → PAGE 1
-// ===============================
+// BACK BUTTON
+// =====================================================
 
 function goBackToFirst() {
 
-    showPage(firstPage);
+    yesPage.classList.add("hidden");
 
+    firstPage.classList.remove("hidden");
+
+    // Reset NO button
     noBtn.style.position = "relative";
     noBtn.style.left = "auto";
     noBtn.style.top = "auto";
 }
 
 
-// ===============================
+// =====================================================
 // PAGE 3 → PAGE 2
-// ===============================
+// =====================================================
 
 function goBackToYes() {
 
-    showPage(yesPage);
+    letterPage.classList.add("hidden");
 
+    yesPage.classList.remove("hidden");
 }
 
 
-// ===============================
+// =====================================================
 // PAGE 3 → PAGE 4
-// ===============================
+// GIFTS
+// =====================================================
 
 function showGifts() {
 
-    showPage(giftPage);
+    letterPage.classList.add("hidden");
 
+    giftPage.classList.remove("hidden");
+
+    createHearts();
+    createSparkles();
 }
 
 
-// ===============================
-// GIFTS
-// ===============================
+// =====================================================
+// OPEN GIFT
+// =====================================================
 
 function openGift(number) {
 
-    const message =
+    const giftMessage =
         document.getElementById("giftMessage");
+
 
     if (number === 1) {
 
-        message.innerHTML =
+        giftMessage.innerHTML =
             "💌 ඔයා මගේ ජීවිතයේ ලස්සනම කෙනා 💗";
 
     }
 
+
     else if (number === 2) {
 
-        message.innerHTML =
+        giftMessage.innerHTML =
             "🧸 ඔයා එක්ක ඉන්න හැම මොහොතක්ම special 💕";
 
     }
 
+
     else if (number === 3) {
 
-        message.innerHTML =
+        giftMessage.innerHTML =
             "💖 මම ඔයාට හැමදාමත් ආදරෙයි 💗";
 
     }
+
 
     createHearts();
 }
 
 
-// ===============================
+// =====================================================
 // PAGE 4 → PAGE 5
-// ===============================
+// OPEN WHEN
+// =====================================================
 
 function showOpenWhen() {
 
-    showPage(openWhenPage);
+    giftPage.classList.add("hidden");
 
+    openWhenPage.classList.remove("hidden");
+
+    createHearts();
+    createSparkles();
 }
 
 
-// ===============================
+// =====================================================
 // OPEN WHEN LETTERS
-// ===============================
+// =====================================================
 
 function openWhenLetter(number) {
 
     const message =
         document.getElementById("openWhenMessage");
+
 
     if (number === 1) {
 
@@ -178,12 +221,14 @@ function openWhenLetter(number) {
 
     }
 
+
     else if (number === 2) {
 
         message.innerHTML =
             "😢 ඔයාට දුක හිතුණාම, තනියම දුක් වෙන්න එපා. මම ඔයා ළඟින් ඉන්නවා 💕";
 
     }
+
 
     else if (number === 3) {
 
@@ -192,6 +237,7 @@ function openWhenLetter(number) {
 
     }
 
+
     else if (number === 4) {
 
         message.innerHTML =
@@ -199,47 +245,61 @@ function openWhenLetter(number) {
 
     }
 
+
     createHearts();
     createSparkles();
 }
 
 
-// ===============================
+// =====================================================
 // PAGE 5 → PAGE 6
-// ===============================
+// REASONS
+// =====================================================
 
 function showPage6() {
 
-    showPage(page6);
+    openWhenPage.classList.add("hidden");
 
+    page6.classList.remove("hidden");
+
+    createHearts();
+    createSparkles();
 }
 
 
-// ===============================
+// =====================================================
 // PAGE 6 → PAGE 7
-// ===============================
+// MEMORIES
+// =====================================================
 
 function showPage7() {
 
-    showPage(page7);
+    page6.classList.add("hidden");
 
+    page7.classList.remove("hidden");
+
+    createHearts();
+    createSparkles();
 }
 
 
-// ===============================
+// =====================================================
 // FLOATING HEARTS
-// ===============================
+// =====================================================
 
 function createHearts() {
 
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 30; i++) {
 
         setTimeout(function () {
 
             const heart =
                 document.createElement("div");
 
-            heart.className = "heart";
+
+            heart.className =
+                "heart";
+
 
             const hearts = [
                 "💗",
@@ -250,6 +310,7 @@ function createHearts() {
                 "💞"
             ];
 
+
             heart.innerHTML =
                 hearts[
                     Math.floor(
@@ -258,13 +319,22 @@ function createHearts() {
                     )
                 ];
 
+
             heart.style.left =
-                Math.random() * 100 + "vw";
+                Math.random() * 100 +
+                "vw";
+
 
             heart.style.animationDuration =
-                Math.random() * 3 + 3 + "s";
+                Math.random() * 3 +
+                3 +
+                "s";
 
-            document.body.appendChild(heart);
+
+            document.body.appendChild(
+                heart
+            );
+
 
             setTimeout(function () {
 
@@ -272,41 +342,55 @@ function createHearts() {
 
             }, 6000);
 
+
         }, i * 100);
     }
 }
 
 
-// ===============================
+// =====================================================
 // SPARKLES
-// ===============================
+// =====================================================
 
 function createSparkles() {
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 20; i++) {
 
         setTimeout(function () {
 
             const sparkle =
                 document.createElement("div");
 
-            sparkle.className = "sparkle";
 
-            sparkle.innerHTML = "✨";
+            sparkle.className =
+                "sparkle";
+
+
+            sparkle.innerHTML =
+                "✨";
+
 
             sparkle.style.left =
-                Math.random() * 100 + "vw";
+                Math.random() * 100 +
+                "vw";
+
 
             sparkle.style.top =
-                Math.random() * 100 + "vh";
+                Math.random() * 100 +
+                "vh";
 
-            document.body.appendChild(sparkle);
+
+            document.body.appendChild(
+                sparkle
+            );
+
 
             setTimeout(function () {
 
                 sparkle.remove();
 
             }, 2000);
+
 
         }, i * 100);
     }
