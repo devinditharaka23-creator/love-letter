@@ -646,10 +646,10 @@ button:hover {
         line-height: 1.6;
     }
 
-}
+
 @media (max-width: 600px) {
     #page6 .reason span {
-        font-size: 18px !important;
-        line-height: 1.5;
+        font-size: 14px !important;
+        line-height: 1.4;
     }
 }
