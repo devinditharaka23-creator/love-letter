@@ -398,3 +398,12 @@ function createSparkles() {
         }, i * 100);
     }
 }
+function nextOpenWhen(pageNumber) {
+    document.getElementById("openWhen1").classList.add("hidden");
+    document.getElementById("openWhen2").classList.add("hidden");
+    document.getElementById("openWhen3").classList.add("hidden");
+    document.getElementById("openWhen4").classList.add("hidden");
+
+    document.getElementById("openWhen" + pageNumber)
+        .classList.remove("hidden");
+}
