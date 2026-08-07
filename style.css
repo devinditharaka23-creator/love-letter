@@ -669,3 +669,17 @@ button:hover {
     }
 
 }
+@media (max-width: 600px) {
+
+    #page7 .memory-card img {
+        height: 105px;
+    }
+
+    #page7 .continue-btn {
+        margin-top: 8px;
+        margin-bottom: 20px;
+        padding: 8px 20px;
+        font-size: 14px;
+    }
+
+}
