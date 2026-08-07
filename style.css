@@ -498,6 +498,57 @@ button:hover {
         justify-content: center;
     }
 
+@media (max-width: 600px) {
+
+    #page6 {
+        justify-content: flex-start;
+        padding-top: 15px;
+        padding-bottom: 10px;
+    }
+
+    #page6 h2 {
+        margin-top: 5px;
+        margin-bottom: 8px;
+        font-size: 25px;
+    }
+
+    #page6 .page-text {
+        margin-bottom: 8px;
+        font-size: 12px;
+    }
+
+    #page6 .reason-card {
+        width: 95%;
+    }
+
+    #page6 .reason {
+        margin: 4px 0;
+        padding: 6px 10px;
+        gap: 7px;
+        border-radius: 15px;
+    }
+
+    #page6 .reason span {
+        font-size: 20px !important;
+        line-height: 1.2;
+    }
+
+    #page6 .continue-btn {
+        margin-top: 6px;
+        padding: 9px 20px;
+        font-size: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+    
     /* =========================
    PAGE 7 - OUR MEMORIES
 ========================= */
