@@ -493,6 +493,11 @@ button:hover {
     color: #555;
     font-weight: bold;
 }
+
+    .reason {
+        justify-content: center;
+    }
+
     /* =========================
    PAGE 7 - OUR MEMORIES
 ========================= */
