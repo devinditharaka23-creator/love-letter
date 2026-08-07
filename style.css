@@ -589,3 +589,14 @@ button:hover {
     }
 }
 }
+@media (max-width: 600px) {
+
+    .letter {
+        max-height: 55vh;
+        overflow-y: auto;
+        padding: 18px;
+        font-size: 13px;
+        line-height: 1.6;
+    }
+
+}
