@@ -736,3 +736,19 @@ button:hover {
         line-height: 1.7;
     }
 }
+#page8 {
+    justify-content: flex-start;
+    overflow-y: auto;
+    padding-top: 25px;
+    padding-bottom: 40px;
+}
+
+#page8 .letter {
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+#page8 .back-btn {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
