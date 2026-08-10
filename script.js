@@ -407,3 +407,10 @@ function nextOpenWhen(pageNumber) {
     document.getElementById("openWhen" + pageNumber)
         .classList.remove("hidden");
 }
+function backToPage7() {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.add("hidden");
+    });
+
+    document.getElementById("page7").classList.remove("hidden");
+}
