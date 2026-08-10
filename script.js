@@ -414,3 +414,10 @@ function backToPage7() {
 
     document.getElementById("page7").classList.remove("hidden");
 }
+function backToFirstFromPage8() {
+
+    document.getElementById("page8").classList.add("hidden");
+
+    document.getElementById("firstPage").classList.remove("hidden");
+
+}
